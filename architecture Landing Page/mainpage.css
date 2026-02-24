@@ -1,0 +1,512 @@
+body{
+    font-family:sans-serif;
+    margin:0px;
+    background-color: #ffffff;
+    background-size:cover;
+}
+.line{
+    width:90%;
+    margin:auto;
+}
+
+/* ===== HEADER ===== */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height:15%;
+    background: #ffffff;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding:5px;
+}
+.header-inner{
+    display:flex;
+    flex-direction:row;
+}
+
+.headercontainer {
+    padding: 10px;
+}
+.headerlogo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #050506;
+    margin-left: 20px;
+}
+.nav{
+    margin:10px;
+    margin-left:20px;
+}
+.nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #202020;
+    font-weight: 500;
+}
+.dropbtn {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.logoSpan{
+    font-weight:lighter;
+}
+/* The Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.1); /* Soft shadow like your image */
+  z-index: 1;
+  border-radius: 8px; /* Rounded corners */
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #555;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* Show the menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*hero section*/
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+}
+
+.slide-content {
+  color: #fff;
+  margin: 0 10% 10% 0;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.slide-content h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.controls {
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  display: flex;
+  gap: 15px;
+}
+
+.dot {
+  width: 40px;
+  height: 2px;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #fff;
+}
+/*studio Section*/
+.studioContainer{
+    background-image:url("https://bridge499.qodeinteractive.com/wp-content/uploads/2022/11/h1-img-03.png");
+    height:400px;
+    width:100%;
+    background-size: cover;
+    padding:60px;
+    padding-top:100px;
+    display:flex;
+    flex-direction: row;
+    gap:50px;
+}
+.studiop{
+    color:#202020;
+    font-size:14px;
+    font-weight:bold;
+}
+.readmorep{
+    color:#333;
+    font-size:16px;
+}
+.studiomain{
+    color:#050506;
+    font-size:30px;
+}
+.studiodata{
+    width:50%;
+    
+}
+.studioImage{
+    width:450px;
+    height:250px;
+    background-size:cover;
+}
+/*contentSection*/
+.contentContainer{
+    height:350px;
+    width:100%;
+    padding:30px;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    gap:30px;
+
+}
+.contentCard{
+    width:350px;
+    padding:20px;
+    margin-top:40px;
+    
+}
+.content{
+    color:#202020;
+    font-size:26px;
+    margin-bottom:10px;
+}
+/*SERVICE SECTION*/
+
+
+.vertical-section{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:100px 80px;
+    background:#fefdfd;
+    gap:30px;
+}
+.vertical{
+    display: flex;
+    gap:80px;
+}
+
+.vertical span{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 40px;
+    color:#000;
+    border-right: 1px solid #ccc;
+}
+
+.vertical-img img{
+    width:250px;
+    height:400px;
+    object-fit:cover;
+}
+.content-area{
+    max-width:350px;
+    margin-left: 10px;
+}
+
+.content-area p{
+    line-height:1.8;
+    margin-bottom:30px;
+    color:#333;
+    
+}
+.read-more{
+    position:relative;
+    text-decoration:none;
+    color:#000;
+    font-weight:bold;
+    padding-bottom:5px;
+}
+
+.read-more::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:2px;
+    background:#000;
+    transform:scaleX(0);
+    transform-origin:right;
+    transition:transform 0.4s ease;
+}
+
+.read-more:hover::after{
+    transform:scaleX(1);
+}
+/*imageSection*/
+.imageContainer{
+    background-image:url("https://bridge499.qodeinteractive.com/wp-content/uploads/2022/11/h1-img-02.jpg");
+    height:600px;
+    width:100%;
+    background-size:cover;
+    padding:60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.imageData{
+    color:#ffffff;
+    font-size:33px;
+    width:50%;
+}
+/*architect section*/
+.arcitectContainer{
+    background-color: #f1eeee;
+    width:100%;
+    background-size:cover;
+    min-height:300px;
+    padding:60px;
+}
+.architectCard{
+    height:200px;
+    width:400px;
+    background-size:cover;
+    background-color: transparent;
+
+}
+.architectcardMini{
+    background-color:#dad6d6;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding:30px;
+}
+.architectcardMini2{
+    background-color:transparent;
+    width:210px;
+    padding:30px;
+}
+
+.arcitectImage{
+    height:180px;
+    width:240px;
+    background-size:cover;
+}
+.architectName{
+    color:#050506;
+    font-size:24px;
+}
+.architectRole{
+    color:#202020;
+    font-size:14px;
+}
+.cardinner{
+    padding:30px;
+    text-align:center;
+}
+.socialIcon{
+    height:30px;
+    width:30px;
+    margin:10px;
+    background-size:cover;
+    color:#020213;
+}
+.socialIcon :hover{
+    color:#555;    /*adjust*/
+}
+/*contactSection*/
+.contactContainer{
+    width:100%;
+    height:500px;
+    background-color:#ffffff;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    gap:20px;
+
+}
+
+/*footer*/
+.footer-container{
+    min-height:300px;
+    width:100%;
+    background-color: #ffffff;
+    padding:30px;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+
+}
+
+.footerleft{
+   width:50%;
+   display:flex;
+   flex-direction:column;
+   justify-content: space-between;
+   margin-left:50px;
+}
+.h4{
+    color: #333;
+    font-size:14px;
+}
+.p12{
+    color:#050506;
+    font-size:14px;
+}
+.footerRight{
+    width:90%;
+    justify-content:space-evenly;
+}
+/*slider2Section*/
+#custom-testimonial-section {
+    padding: 100px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.testimonial-slider-wrap {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 200px; /* Adjust based on text length */
+}
+
+.testimonial-slide {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s;
+}
+
+/* The class that triggers the fade-in */
+.testimonial-slide.testimonial-active {
+    position: relative; 
+    opacity: 1;
+    visibility: visible;
+}
+
+.testimonial-text {
+    font-size: 26px;
+    color: #222;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.testimonial-meta {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #999;
+    font-weight: 600;
+}
+/*interview Section*/
+
+.interviewcontainer {
+    min-height:600px;
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 80px 20px;
+    background-color: #f8f8f8;
+}
+
+/* 4-Column Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.blog-card {
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+/* The Zoom Container */
+.img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1.15; 
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+.interviewImage{
+    height:200px;
+    background-size:cover;
+}
+.img-wrapper img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hover State: Trigger the Zoom */
+.blog-card:hover .img-wrapper img {
+    transform: scale(1.08);
+}
+
+.meta {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.entry-title {
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.blog-card:hover .entry-title {
+    color: #666;
+}
+
+/* Responsive Fix */
+@media (max-width: 1024px) {
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .blog-grid { grid-template-columns: 1fr; }
+}
