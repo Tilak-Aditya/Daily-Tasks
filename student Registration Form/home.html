@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>Student Registration Form</title>
+
+    <link rel="stylesheet" href="home.css" /> 
+    <!--boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!--fontawesome-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    </head>
+    <body>
+     <!--Form Section-->
+      <section class="Form-Section">
+       <div class="formSectionContainer">
+             <h1 class="mainHeading">STUDENT REGISTRATION FORM</h1>
+        <form id="form">
+          <div class="inputContainer">
+              <p class="text">Full Name : </p>
+              <input type="text" placeholder="Enter Your Name" class="fullName" id="FullName"/>
+          </div>
+          <span id="nameErrMsgEl" class="text-center"></span>
+          <div class="d-flex flex-row">
+          <div class="inputContainer">
+              <p class="text">Date of Birth : </p>
+              <input type="date" placeholder="Enter Your DOB" class="DOB" id="DateOfBirth"/>
+          </div>
+          <div class="inputContainer">
+              <p class="text">ID Number : </p>
+              <input type="text" placeholder="Enter Your ID " class="DOB" id="IDNumber"/>
+          </div>
+          </div>
+          <div class="inputContainer">
+              <p class="text">E-mail :</p>
+              <input type="email" placeholder="Enter Your E-mail" class="fullName" id="Email"/>
+          </div>
+        <div class="d-flex flex-row">
+          <div class="inputContainer">
+              <p class="text">Mobile Number :</p>
+              <input type="tel" placeholder="Mobile Number"  class="DOB" id="MobileNumber"/>
+          </div>
+          <div class="inputContainer">
+              <p class="text">Course :</p>
+                 <select required class="DOB" id="course">
+                 <option value="">Select Course</option>
+                   <option>Computer Science</option>
+                   <option>Business Administration</option>
+                    <option>Engineering</option>
+                   </select>
+             </div>
+        </div>
+         <div class="inputContainer">
+              <p class="text">Upload Your photo: </p>
+              <input type="file" id="Photo"/>
+          </div>
+          <div class="d-flex flex-row justify-content-center">
+            <button type="submit" class="btn btn-primary button" id="submitBtn">Submit</button>
+            <button type="reset" class="btn btn-danger button"  id="ResetBtn">Reset</button>
+          </div>
+        </form>
+         </div>
+     </section>
+
+     <!--displaySection-->
+     <section class="display-Section">
+        
+        <!-- The Table -->
+        <div class="table-wrapper">
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>DateOfBirth</th>
+                        <th>Id Number</th>
+                        <th>Email</th>
+                        <th>MobileNumber</th>
+                        <th>course</th>
+                        <th>Photo</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    
+                </tbody>
+            </table>
+        </div>
+     </section>
+
+
+        <script src="home.js"></script>
+    </body>
+</html>
