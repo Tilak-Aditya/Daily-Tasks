@@ -1,0 +1,918 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+  let wishListProducts =
+    JSON.parse(localStorage.getItem("wishlist")) || [];
+
+  let cartListProducts =
+    JSON.parse(localStorage.getItem("cartItems")) || [];
+
+
+  function saveWishlist() {
+    localStorage.setItem("wishlist", JSON.stringify(wishListProducts));
+  }
+
+  function saveCart() {
+    localStorage.setItem("cartItems", JSON.stringify(cartListProducts));
+  }
+
+  /*men products*/
+const menProducts = [
+  {
+    _id: "MEN001",
+    productName: "Nike Air Max 90",
+    price: 145,
+    image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN002",
+    productName: "Adidas Ultraboost 22",
+    price: 180,
+    image: "https://images.unsplash.com/photo-1595341888016-a392ef81b7de?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN003",
+    productName: "Puma RS-X Bold",
+    price: 120,
+    image: "https://images.unsplash.com/photo-1614253429345-981bfae63c1e?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN004",
+    productName: "New Balance 574 Classic",
+    price: 110,
+    image: "https://images.unsplash.com/photo-1588361861040-ac9b1018f6d5?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN005",
+    productName: "ASICS Gel Kayano 30",
+    price: 165,
+    image: "https://images.unsplash.com/photo-1605034313761-73ea4a0cfbf3?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN006",
+    productName: "Reebok Nano X3",
+    price: 140,
+    image: "https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN007",
+    productName: "Converse Chuck 70 High",
+    price: 95,
+    image: "https://images.unsplash.com/photo-1517263904808-5dc91e3e7044?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN008",
+    productName: "Vans Old Skool Pro",
+    price: 85,
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN009",
+    productName: "Jordan 1 Retro High",
+    price: 210,
+    image: "https://images.unsplash.com/photo-1606813909275-9e9d7a6c89f1?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN010",
+    productName: "Under Armour HOVR Phantom",
+    price: 155,
+    image: "https://images.unsplash.com/photo-1584735175315-9d5df23be620?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN011",
+    productName: "Fila Disruptor II",
+    price: 90,
+    image: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN012",
+    productName: "Skechers D'Lites",
+    price: 80,
+    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN013",
+    productName: "Nike React Infinity Run",
+    price: 160,
+    image: "https://images.unsplash.com/photo-1575537302964-96cd47c06b1b?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN014",
+    productName: "Adidas NMD R1",
+    price: 170,
+    image: "https://images.unsplash.com/photo-1606813909339-91b2bde1e4ef?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN015",
+    productName: "Puma Future Rider",
+    price: 105,
+    image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+    category: "men",
+    qty: 1
+  },
+  {
+    _id: "MEN016",
+    productName: "New Balance Fresh Foam X",
+    price: 175,
+    image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600",
+    category: "men",
+    qty: 1
+  }
+];
+const womenProducts = [
+  {
+    _id: "WOM001",
+    productName: "Nike Air Zoom Pegasus Women",
+    price: 140,
+    image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM002",
+    productName: "Adidas Ultraboost Women",
+    price: 175,
+    image: "https://images.unsplash.com/photo-1520975922323-8e8a6cba7aaf?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM003",
+    productName: "Puma Cali Sport Women",
+    price: 110,
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM004",
+    productName: "New Balance 327 Women",
+    price: 120,
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM005",
+    productName: "ASICS Gel Nimbus Women",
+    price: 160,
+    image: "https://images.unsplash.com/photo-1584735175315-9d5df23be620?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM006",
+    productName: "Reebok Classic Leather Women",
+    price: 95,
+    image: "https://images.unsplash.com/photo-1588361861040-ac9b1018f6d5?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM007",
+    productName: "Converse Chuck Taylor Women",
+    price: 85,
+    image: "https://images.unsplash.com/photo-1606813909275-9e9d7a6c89f1?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM008",
+    productName: "Vans Platform Old Skool Women",
+    price: 90,
+    image: "https://images.unsplash.com/photo-1511556820780-d912e42b4980?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM009",
+    productName: "Nike React Infinity Women",
+    price: 155,
+    image: "https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM010",
+    productName: "Adidas NMD Women",
+    price: 165,
+    image: "https://images.unsplash.com/photo-1605034313761-73ea4a0cfbf3?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM011",
+    productName: "Puma Mayze Women",
+    price: 115,
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM012",
+    productName: "Skechers D'Lites Women",
+    price: 85,
+    image: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM013",
+    productName: "Fila Disruptor Women",
+    price: 92,
+    image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM014",
+    productName: "Under Armour Charged Women",
+    price: 130,
+    image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM015",
+    productName: "New Balance Fresh Foam Women",
+    price: 170,
+    image: "https://images.unsplash.com/photo-1606813909339-91b2bde1e4ef?w=600",
+    category: "women",
+    qty: 1
+  },
+  {
+    _id: "WOM016",
+    productName: "Nike Air Force 1 Women",
+    price: 150,
+    image: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600",
+    category: "women",
+    qty: 1
+  }
+];
+const kidsProducts = [
+  {
+    _id: "KID001",
+    productName: "Nike Kids Revolution",
+    price: 70,
+    image: "https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID002",
+    productName: "Adidas Kids Runfalcon",
+    price: 65,
+    image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID003",
+    productName: "Puma Kids Smash",
+    price: 60,
+    image: "https://images.unsplash.com/photo-1511556820780-d912e42b4980?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID004",
+    productName: "New Balance Kids 574",
+    price: 75,
+    image: "https://images.unsplash.com/photo-1588361861040-ac9b1018f6d5?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID005",
+    productName: "ASICS Kids Contend",
+    price: 68,
+    image: "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID006",
+    productName: "Reebok Kids Rush Runner",
+    price: 58,
+    image: "https://images.unsplash.com/photo-1605034313761-73ea4a0cfbf3?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID007",
+    productName: "Converse Kids Chuck Taylor",
+    price: 55,
+    image: "https://images.unsplash.com/photo-1606813909275-9e9d7a6c89f1?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID008",
+    productName: "Vans Kids Old Skool",
+    price: 62,
+    image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID009",
+    productName: "Nike Kids Air Max",
+    price: 80,
+    image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID010",
+    productName: "Adidas Kids Superstar",
+    price: 72,
+    image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID011",
+    productName: "Puma Kids Rider",
+    price: 66,
+    image: "https://images.unsplash.com/photo-1517263904808-5dc91e3e7044?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID012",
+    productName: "Fila Kids Disruptor",
+    price: 63,
+    image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID013",
+    productName: "Skechers Kids Light Up",
+    price: 59,
+    image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID014",
+    productName: "Under Armour Kids Charged",
+    price: 74,
+    image: "https://images.unsplash.com/photo-1606813909339-91b2bde1e4ef?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID015",
+    productName: "New Balance Kids Fresh Foam",
+    price: 78,
+    image: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600",
+    category: "kids",
+    qty: 1
+  },
+  {
+    _id: "KID016",
+    productName: "Nike Kids Court Borough",
+    price: 69,
+    image: "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600",
+    category: "kids",
+    qty: 1
+  }
+];
+
+
+  /*  SLIDER MODULE */
+
+
+  function initSlider() {
+
+    const track = document.querySelector(".slider-track");
+    if (!track) return;
+
+    const slides = document.querySelectorAll(".slide");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const dots = document.querySelectorAll(".dot");
+
+    let currentIndex = 0;
+
+    function updateSlider(index) {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[index]?.classList.add("active");
+      currentIndex = index;
+    }
+
+    nextBtn?.addEventListener("click", () => {
+      updateSlider((currentIndex + 1) % slides.length);
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      updateSlider((currentIndex - 1 + slides.length) % slides.length);
+    });
+
+    setInterval(() => {
+      nextBtn?.click();
+    }, 3000);
+  }
+
+
+  /* TAB MODULE*/
+
+  function initTabs() {
+
+    const tabs = document.querySelectorAll(".tab");
+    if (!tabs.length) return;
+
+    const slider = document.querySelector(".slider");
+    const sections = document.querySelectorAll(".section");
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+
+        tabs.forEach(t => t.classList.remove("active"));
+        sections.forEach(sec => sec.classList.remove("active-section"));
+
+        tab.classList.add("active");
+        document
+          .getElementById(tab.dataset.target)
+          ?.classList.add("active-section");
+
+        slider.style.transform = `translateX(${index * 100}%)`;
+      });
+    });
+  }
+
+
+  /* CART LOGIC*/
+
+function addToCart(product) {
+
+  const existingProduct = cartListProducts.find(
+    item => item._id === product._id
+  );
+
+  if (existingProduct) {
+    existingProduct.qty += 1;  // increase quantity
+  } else {
+    cartListProducts.push({
+      ...product,
+      qty: 1
+    });
+  }
+
+  saveCart();
+  renderCartPage();
+}
+
+
+  function removeFromCart(id) {
+
+    cartListProducts = cartListProducts.filter(
+      item => item._id !== id
+    );
+
+    saveCart();
+    renderCartPage();
+  }
+
+function updateWishlistBadge() {
+
+  const badge = document.getElementById("wishlistCount");
+  if (!badge) return;
+
+  badge.textContent = wishListProducts.length;
+
+  if (wishListProducts.length === 0) {
+    badge.style.display = "none";
+  } else {
+    badge.style.display = "flex";
+  }
+}
+  /* WISHLIST LOGIC */
+
+  function toggleWishlist(product, icon) {
+
+    const exists = wishListProducts.some(
+      item => item._id === product._id
+    );
+
+    if (exists) {
+
+      wishListProducts = wishListProducts.filter(
+        item => item._id !== product._id
+      );
+
+      icon.classList.remove("fa-solid", "liked");
+      icon.classList.add("fa-regular");
+
+    } else {
+
+      wishListProducts.push(product);
+
+      icon.classList.remove("fa-regular");
+      icon.classList.add("fa-solid", "liked");
+    }
+
+    saveWishlist();
+    updateWishlistBadge();
+    initWishlistPage();
+  }
+
+  /* PRODUCT CARD CREATOR*/
+
+  function createProduct(product) {
+
+    const card = document.createElement("div");
+    card.classList.add("productCard");
+    card.style.backgroundImage = `url(${product.image})`;
+
+    /* Wishlist Icon */
+
+    const wishlistIcon = document.createElement("i");
+
+    const liked = wishListProducts.some(
+      item => item._id === product._id
+    );
+
+    wishlistIcon.className = liked
+      ? "fa-solid fa-heart wishIcon liked"
+      : "fa-regular fa-heart wishIcon";
+
+    wishlistIcon.addEventListener("click", () =>
+      toggleWishlist(product, wishlistIcon)
+    );
+
+    card.appendChild(wishlistIcon);
+
+    /* Product Info */
+
+    const container = document.createElement("div");
+    container.classList.add("divCon");
+
+    const title = document.createElement("h1");
+    title.classList.add("productName");
+    title.textContent = product.productName;
+
+    const price = document.createElement("p");
+    price.textContent = `$${product.price}`;
+
+    const button = document.createElement("button");
+    button.classList.add("addTocartButton");
+    button.textContent = "Add to Cart";
+
+    button.addEventListener("click", () => {
+      addToCart(product);
+    });
+
+    container.append(title, price, button);
+    card.appendChild(container);
+
+    return card;
+  }
+
+
+  /* PRODUCT DATA*/
+
+  let recommendedProducts=[
+  {
+    "_id": "REC001",
+    "productName": "Air Zoom Pegasus 40",
+    "price": 130,
+    "image": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 25,
+    "rating": 4.8,
+    "qty": 1
+  },
+  {
+    "_id": "REC002",
+    "productName": "UltraBoost Light",
+    "price": 150,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 18,
+    "rating": 4.7,
+    "qty": 1
+  },
+  {
+    "_id": "REC003",
+    "productName": "RS-X Reinvent",
+    "price": 115,
+    "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 30,
+    "rating": 4.5,
+    "qty": 1
+  },
+  {
+    "_id": "REC004",
+    "productName": "Gel Nimbus 26",
+    "price": 160,
+    "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 20,
+    "rating": 4.9,
+    "qty": 1
+  },
+  {
+    "_id": "REC005",
+    "productName": "Classic Chuck Taylor High",
+    "price": 85,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 40,
+    "rating": 4.6,
+    "qty": 1
+  },
+  {
+    "_id": "REC006",
+    "productName": "Old Skool Black/White",
+    "price": 75,
+    "image": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 35,
+    "rating": 4.4,
+    "qty": 1
+  },
+
+  {
+    "_id": "REC008",
+    "productName": "Air Max Pulse",
+    "price": 140,
+    "image": "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 22,
+    "rating": 4.7,
+    "qty": 1
+  },
+  {
+    "_id": "REC009",
+    "productName": "Stan Smith Classic",
+    "price": 100,
+    "image": "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 32,
+    "rating": 4.6,
+    "qty": 1
+  },
+  {
+    "_id": "REC010",
+    "productName": "New Balance Fresh Foam X",
+    "price": 135,
+    "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 21,
+    "rating": 4.5,
+    "qty": 1
+  },
+  {
+    "_id": "REC011",
+    "productName": "Puma Suede Classic",
+    "price": 85,
+    "image": "https://images.unsplash.com/photo-1511556820780-d912e42b4980?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 29,
+    "rating": 4.4,
+    "qty": 1
+  },
+  {
+    "_id": "REC012",
+    "productName": "Nike Air Force 1",
+    "price": 120,
+    "image": "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 34,
+    "rating": 4.9,
+    "qty": 1
+  },
+  {
+    "_id": "REC013",
+    "productName": "Adidas NMD R1",
+    "price": 140,
+    "image": "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 26,
+    "rating": 4.6,
+    "qty": 1
+  },
+  {
+    "_id": "REC014",
+    "productName": "ASICS GT-2000 12",
+    "price": 145,
+    "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 23,
+    "rating": 4.7,
+    "qty": 1
+  },
+  {
+    "_id": "REC015",
+    "productName": "Salomon Speedcross 6",
+    "price": 155,
+    "image": "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 17,
+    "rating": 4.8,
+    "qty": 1
+  },
+  {
+    "_id": "REC016",
+    "productName": "Vans Sk8-Hi Classic",
+    "price": 80,
+    "image": "https://images.unsplash.com/photo-1520256862855-398228c41684?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 36,
+    "rating": 4.5,
+    "qty": 1
+  }
+]
+
+
+/* MEN PRODUCTS */
+const menProductsCon = document.getElementById("MenSection");
+if (menProductsCon) {
+  menProducts.forEach(product => {
+    menProductsCon.appendChild(createProduct(product));
+  });
+}
+
+/* WOMEN PRODUCTS */
+const womenProductsCon = document.getElementById("WomenSection");
+if (womenProductsCon) {
+  womenProducts.forEach(product => {
+    womenProductsCon.appendChild(createProduct(product));
+  });
+}
+
+/* KIDS PRODUCTS */
+const kidsProductsCon = document.getElementById("kidsSection");
+if (kidsProductsCon) {
+  kidsProducts.forEach(product => {
+    kidsProductsCon.appendChild(createProduct(product));
+  });
+}
+
+  /* RENDER FUNCTIONS*/
+
+  function initRecommendedProducts() {
+
+    const container = document.getElementById("RecommendedSection");
+    if (!container) return;
+
+    recommendedProducts.forEach(product => {
+      container.appendChild(createProduct(product));
+    });
+  }
+
+  function initWishlistPage() {
+
+    const container =
+      document.getElementById("WislistProductsContainer");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    if (wishListProducts.length === 0) {
+      container.innerHTML = "<h2>Your Wishlist is Empty ❤️</h2>";
+      return;
+    }
+
+    wishListProducts.forEach(product => {
+      container.appendChild(createProduct(product));
+    });
+  }
+function renderCartPage() {
+
+  const container = document.getElementById("cartItemsSection");
+  if (!container) return;
+
+  container.innerHTML = "";
+  
+  if (cartListProducts.length === 0) {
+    container.innerHTML = "<h2>Your Cart is Empty 🛒</h2>";
+    return;
+  }
+
+  let grandTotal = 0;
+
+  cartListProducts.forEach(product => {
+
+    const card = document.createElement("div");
+    card.classList.add("cartCard");
+
+    const img = document.createElement("img");
+    img.src = product.image;
+    img.classList.add("cartImage");
+
+    const detailsContainer=document.createElement("div");
+    detailsContainer.classList.add("cardInfo");
+
+    const name = document.createElement("h3");
+    name.textContent = product.productName;
+    detailsContainer.appendChild(name);
+
+    const price = document.createElement("p");
+    price.textContent = `$${product.price}`;
+    detailsContainer.appendChild(price);
+
+    /* QUANTITY CONTROLS */
+
+    const qtyContainer = document.createElement("div");
+    qtyContainer.classList.add("qtyContainer");
+
+    const minusBtn = document.createElement("button");
+    minusBtn.textContent = "-";
+
+    const qtyText = document.createElement("span");
+    qtyText.textContent = product.qty;
+
+    const plusBtn = document.createElement("button");
+    plusBtn.textContent = "+";
+
+    minusBtn.addEventListener("click", () => {
+      if (product.qty > 1) {
+        product.qty -= 1;
+      } else {
+        removeFromCart(product._id);
+        return;
+      }
+      saveCart();
+      renderCartPage();
+    });
+
+    plusBtn.addEventListener("click", () => {
+      product.qty += 1;
+      saveCart();
+      renderCartPage();
+    });
+
+    qtyContainer.append(minusBtn, qtyText, plusBtn);
+    detailsContainer.appendChild(qtyContainer);
+
+    /* ITEM TOTAL */
+
+    const removeCon =document.createElement("div");
+    removeCon.classList.add("removeCon");
+
+    const itemTotal = product.price * product.qty;
+    grandTotal += itemTotal;
+
+    const totalText = document.createElement("p");
+    totalText.classList.add("totalText");
+    totalText.textContent = `Total: $${itemTotal}`;
+
+    /* REMOVE BUTTON */
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.classList.add("removeCartBtn");
+
+    removeBtn.addEventListener("click", () =>
+      removeFromCart(product._id)
+    );
+    card.append(img,detailsContainer,totalText ,removeBtn);
+    container.appendChild(card);
+  });
+
+  /* GRAND TOTAL SECTION */
+
+  const grandTotalDiv = document.createElement("div");
+  grandTotalDiv.classList.add("grandTotal");
+
+  grandTotalDiv.innerHTML = `
+    <h2>Grand Total: $${grandTotal}</h2>
+  `;
+
+  const checkOutBtn=document.createElement("button");
+  checkOutBtn.classList.add("checkOutBtn");
+  checkOutBtn.textContent="CHECK OUT ";
+  grandTotalDiv.appendChild(checkOutBtn);
+
+  container.appendChild(grandTotalDiv);
+}
+
+
+  /*INITIALIZE APP*/
+
+  initSlider();
+  initTabs();
+  initRecommendedProducts();
+  initWishlistPage();
+  renderCartPage();
+  updateWishlistBadge(); 
+
+});

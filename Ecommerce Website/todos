@@ -1,0 +1,335 @@
+
+add button in card section to navigate to next page
+
+const track = document.querySelector('.slider-track');
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const dots = document.querySelectorAll('.dot');
+
+
+
+let currentIndex = 0;
+
+function updateSlider(index) {
+    // Move the track
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    // Update Dots
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    
+    currentIndex = index;
+}
+
+nextBtn.addEventListener('click', () => {
+    let index = (currentIndex + 1 === slides.length) ? 0 : currentIndex + 1;
+    updateSlider(index);
+});
+
+prevBtn.addEventListener('click', () => {
+    let index = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+    updateSlider(index);
+});
+
+// Auto-play (Optional)
+setInterval(() => {
+    nextBtn.click();
+}, 3000);
+
+
+
+// adding toggler button
+  const tabs = document.querySelectorAll(".tab");
+  const slider = document.querySelector(".slider");
+  const sections = document.querySelectorAll(".section");
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+
+      // Remove active class from all
+      tabs.forEach(t => t.classList.remove("active"));
+      sections.forEach(sec => sec.classList.remove("active-section"));
+
+      // Add active to clicked
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.target)
+        .classList.add("active-section");
+
+      // Move slider
+      slider.style.transform = `translateX(${index * 100}%)`;
+    });
+  });
+
+//functionality for products
+function createProduct(eachProduct){
+     const cardText=eachProduct.productName;
+  const cardImage=eachProduct.image;
+
+
+  const RecProductCard=document.createElement("div");
+  RecProductCard.style.backgroundImage = `url(${cardImage})`;
+
+  const wishlistIcon=document.createElement("i");
+  wishlistIcon.className="fa-regular fa-heart wishIcon";
+
+  wishlistIcon.addEventListener("click", () => {
+     
+    const isLiked = wishlistIcon.classList.contains("fa-regular");
+
+
+    // Switch between regular and solid
+    wishlistIcon.classList.toggle("fa-regular");
+    wishlistIcon.classList.toggle("fa-solid");
+
+    // Add red color + small scale
+    wishlistIcon.classList.toggle("liked");
+
+    if (isLiked) {
+        // Product added to wishlist
+        console.log(" Added to Wishlist:");
+        console.log({
+            id: eachProduct._id,
+            name: eachProduct.productName,
+            price: eachProduct.price,
+            image: eachProduct.image
+        });
+        wishListProducts.push({
+            id: eachProduct._id,
+            name: eachProduct.productName,
+            price: eachProduct.price,
+            image: eachProduct.image
+        });
+        console.log(wishListProducts);
+    } else {
+        // Product removed from wishlist
+          wishListProducts = wishListProducts.filter(
+            item => item.id !== eachProduct._id
+        );
+        console.log(" Removed from Wishlist:", eachProduct.productName);
+    }
+   localStorage.setItem("wishlist", JSON.stringify(wishListProducts));
+
+});
+
+  RecProductCard.appendChild(wishlistIcon);
+
+  const divCon=document.createElement("div");
+  divCon.classList.add("divCon");
+ 
+
+  const ProductDetails=document.createElement("div");
+  ProductDetails.classList.add("productionDetails");
+  const cardData=document.createElement("h1");
+  cardData.classList.add("productName");
+  cardData.textContent=cardText;
+  divCon.appendChild(cardData);
+
+ 
+  
+
+  const price = document.createElement("p");
+  price.textContent = `$${eachProduct.price}`;
+  ProductDetails.appendChild(price);
+
+  const button = document.createElement("button");
+  const span =document.createElement("span");
+  span.classList.add("button-content");
+  span.textContent = "Add to Cart";  
+  button.appendChild(span);
+  button.classList.add("addTocartButton");
+  button.addEventListener("click", () => {
+  console.log("Added:", eachProduct.productName);
+});
+   ProductDetails.appendChild(button);
+   
+   divCon.appendChild(ProductDetails);
+    RecProductCard.appendChild(divCon);
+  RecProductCard.classList.add("productCard");
+
+  return RecProductCard;
+
+}
+
+
+
+//recommended products
+
+
+let recommendedProducts=[
+  {
+    "_id": "REC001",
+    "productName": "Air Zoom Pegasus 40",
+    "price": 130,
+    "image": "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 25,
+    "rating": 4.8,
+    "qty": 1
+  },
+  {
+    "_id": "REC002",
+    "productName": "UltraBoost Light",
+    "price": 150,
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 18,
+    "rating": 4.7,
+    "qty": 1
+  },
+  {
+    "_id": "REC003",
+    "productName": "RS-X Reinvent",
+    "price": 115,
+    "image": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 30,
+    "rating": 4.5,
+    "qty": 1
+  },
+  {
+    "_id": "REC004",
+    "productName": "Gel Nimbus 26",
+    "price": 160,
+    "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 20,
+    "rating": 4.9,
+    "qty": 1
+  },
+  {
+    "_id": "REC005",
+    "productName": "Classic Chuck Taylor High",
+    "price": 85,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 40,
+    "rating": 4.6,
+    "qty": 1
+  },
+  {
+    "_id": "REC006",
+    "productName": "Old Skool Black/White",
+    "price": 75,
+    "image": "https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 35,
+    "rating": 4.4,
+    "qty": 1
+  },
+
+  {
+    "_id": "REC008",
+    "productName": "Air Max Pulse",
+    "price": 140,
+    "image": "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 22,
+    "rating": 4.7,
+    "qty": 1
+  },
+  {
+    "_id": "REC009",
+    "productName": "Stan Smith Classic",
+    "price": 100,
+    "image": "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 32,
+    "rating": 4.6,
+    "qty": 1
+  },
+  {
+    "_id": "REC010",
+    "productName": "New Balance Fresh Foam X",
+    "price": 135,
+    "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 21,
+    "rating": 4.5,
+    "qty": 1
+  },
+  {
+    "_id": "REC011",
+    "productName": "Puma Suede Classic",
+    "price": 85,
+    "image": "https://images.unsplash.com/photo-1511556820780-d912e42b4980?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 29,
+    "rating": 4.4,
+    "qty": 1
+  },
+  {
+    "_id": "REC012",
+    "productName": "Nike Air Force 1",
+    "price": 120,
+    "image": "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 34,
+    "rating": 4.9,
+    "qty": 1
+  },
+  {
+    "_id": "REC013",
+    "productName": "Adidas NMD R1",
+    "price": 140,
+    "image": "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 26,
+    "rating": 4.6,
+    "qty": 1
+  },
+  {
+    "_id": "REC014",
+    "productName": "ASICS GT-2000 12",
+    "price": 145,
+    "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 23,
+    "rating": 4.7,
+    "qty": 1
+  },
+  {
+    "_id": "REC015",
+    "productName": "Salomon Speedcross 6",
+    "price": 155,
+    "image": "https://images.unsplash.com/photo-1543508282-6319a3e2621f?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 17,
+    "rating": 4.8,
+    "qty": 1
+  },
+  {
+    "_id": "REC016",
+    "productName": "Vans Sk8-Hi Classic",
+    "price": 80,
+    "image": "https://images.unsplash.com/photo-1520256862855-398228c41684?w=600&auto=format&fit=crop&q=60",
+    "countInStock": 36,
+    "rating": 4.5,
+    "qty": 1
+  }
+]
+
+const RecommendedSlider=document.getElementById("RecommendedSection");
+ 
+
+
+for(let eachProduct of recommendedProducts){
+ const pCard= createProduct(eachProduct);
+ RecommendedSlider.appendChild(pCard);
+}
+
+//WishlistProducts
+
+const WislistProductsContainer=document.getElementById("WislistProductsContainer");
+let wishListItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+for(let eachProduct of wishListItems){
+  const pCard=createProduct(eachProduct);
+  WishListProductsContainer.appendChild(pCard);
+}
+
+
+
+
+
+// Check if product already exists in cart
+    const alreadyInCart = cartListProducts.find(
+        item => item.id === product._id
+    );
+      const productData = {
+          id: product._id,
+          name: product.productName,
+          price: product.price,
+          image: product.image
+        };
+    if (!alreadyInCart) {
+        cartListProducts.push(productData);
+    } 
+
+      localStorage.setItem("cartItems", JSON.stringify(cartListProducts));
