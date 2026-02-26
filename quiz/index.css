@@ -1,0 +1,153 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quizCardContainer {
+    width: 600px;
+    min-height:400px;
+    background-image: linear-gradient(to right,#8369cc,#739de5);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding:10px 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    margin-top:20px;
+}
+.TimerSection{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    font-weight:bold;
+    margin-bottom: 30px;
+
+}
+.timerLogo{
+    font-size:20px;
+}
+#timer{
+    color:#ef375c;
+}
+.questionContainer{
+    min-height:40px;
+    width:100%;
+    background-color:#ffffff;
+    font-size: 20px;
+    color: #000;
+    font-weight:bold;
+    padding:10px;
+    border-radius:12px;
+    background-size:cover;
+    text-align:center;
+}
+
+
+/* Options */
+.optionsContainer{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px;
+}
+
+.option {
+    padding: 12px;
+    min-height: 45px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+    color: #06011c;
+    font-weight:bold;
+}
+
+.option:hover {
+    background-color: #06011c;
+    transform: scale(1.03);
+    color: white;
+}
+/* Progress Bar */
+.progress-bar {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: white;
+    transition: width 0.4s ease;
+}
+
+/* Bottom Buttons */
+.buttonSection {
+    margin-top: 25px;
+    display: flex;
+    justify-content:center;
+}
+
+.actionBtn {
+    padding: 10px 20px;
+    width:110px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: white;
+    color: #06011c;
+    transition: 0.3s;
+    margin:10px;
+}
+
+.actionBtn:hover {
+    background-color: #06011c;
+    color: white;
+}
+
+.submitBtn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.submitBtn:hover {
+    background-color: #c4042a;
+}
+.hidden {
+    display: none;
+}
+
+.reportCard {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.reportCard h2 {
+    margin-bottom: 10px;
+}
+
+#finalScore {
+    font-size: 28px;
+    margin: 15px 0;
+}
+/* Responsive */
+@media (max-width: 500px) {
+    .quiz-card {
+        width: 100%;
+    }
+}
