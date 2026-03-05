@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Simple Advanced Todo</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+<link rel="stylesheet" href="TodoList.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Todo List</h1>
+
+<div class="input-section">
+
+<input type="text" id="taskTitle" placeholder="Enter task">
+
+<input type="date" id="taskDate">
+
+<input type="time" id="taskTime">
+
+<button id="addTask">Add Task</button>
+
+</div>
+
+<div class="layout">
+
+<div class="tasks">
+
+<div class="task-box">
+<h2>Today's Tasks</h2>
+<div id="todayTasks"></div>
+</div>
+
+<div class="task-box">
+<h2>Upcoming Tasks</h2>
+<div id="upcomingTasks"></div>
+</div>
+
+</div>
+
+<div class="right-section">
+
+<div class="planner">
+<h2>Today's Planner</h2>
+<div id="planner"></div>
+</div>
+
+<div class="calendar">
+
+<h2>Calendar</h2>
+
+<div class="calendar-header">
+<button id="prevMonth"><</button>
+<span id="monthYear"></span>
+<button id="nextMonth">></button>
+</div>
+
+<div id="calendar" class="calendar-grid"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="TodoList.js"></script>
+
+</body>
+</html>body
