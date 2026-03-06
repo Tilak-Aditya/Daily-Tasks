@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+<a href="http://127.0.0.1:5500/HomePage.html"><h2>Admin Panel</h2></a>
+
+<ul>
+<li class="active">Dashboard</li>
+<li>Products</li>
+<li>Orders</li>
+<li>Users</li>
+</ul>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<h1>Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Products</h3>
+<p id="totalProducts">0</p>
+</div>
+
+<div class="card">
+<h3>Total Orders</h3>
+<p>0</p>
+</div>
+
+<div class="card">
+<h3>Total Users</h3>
+<p>0</p>
+</div>
+
+</div>
+
+<div class="productSection">
+
+<div class="header">
+<h2>Products</h2>
+<button id="openModal">Add Product</button>
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Image</th>
+<th>Name</th>
+<th>Price</th>
+<th>Category</th>
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody id="productTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Add Product Modal -->
+
+<div class="modal" id="productModal">
+
+<div class="modalContent">
+
+<h2>Add Product</h2>
+
+<input type="text" id="name" placeholder="Product Name">
+<input type="number" id="price" placeholder="Price">
+<input type="text" id="image" placeholder="Image URL">
+<input type="text" id="category" placeholder="Category">
+
+<button id="addProductBtn">Add Product</button>
+
+<button id="closeModal">Cancel</button>
+
+</div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
