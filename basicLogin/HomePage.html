@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f6fb;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.dashboard{
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+text-align:center;
+width:350px;
+}
+
+h1{
+margin-bottom:20px;
+color:#333;
+}
+
+p{
+color:#666;
+margin-bottom:25px;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#9480e2;
+color:white;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<h1 id="welcome"></h1>
+
+<p>You have successfully logged into your Account.</p>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if(!user){
+window.location.href="loginPage.html";
+}
+
+document.getElementById("welcome").innerText =
+"Welcome " + user.username;
+
+function logout(){
+
+localStorage.removeItem("loggedInUser");
+
+window.location.href="loginPage.html";
+
+}
+
+</script>
+
+</body>
+</html>
