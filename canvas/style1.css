@@ -1,0 +1,123 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+.bgContainer{
+    background-color: rgb(233, 232, 230);
+    min-height:90vh;
+    width:100vw;
+    background-size: cover;
+}
+.topSection{
+    background-color: white;
+    padding:10px;
+    height:10vh;
+    width:100vw;
+    display: flex;
+    flex-direction:row;
+}
+#promptInput{
+    height:40px;
+    width:40vw;
+}
+.inputContainer{
+   margin-left:200px;
+   display: flex;
+}
+.inputContainer h3{
+    margin:10px;
+}
+#generateBtn{
+    height:40px;
+    width:130px;
+    background-color: #3d3261;
+    color:#ffffff;
+    border-style:none;
+    border-radius:10px;
+    margin-left:60px;
+}
+.canva-Section{
+    margin:50px;
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.canvaContainer{
+    height:60vh;
+    width:70vw;
+    background-color:#ffffff;
+}
+.bottomSection{
+    margin-top:20px;
+    background-color: white;
+    padding:10px;
+    height:10vh;
+    width:100vw;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+}
+.section{
+    margin-bottom:20px;
+    display:flex;
+    flex-direction: row;
+    max-width:20vw;
+}
+.section h3{
+    font-size:20px ;
+    color:#03010b;
+}
+
+.shapesSection{
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+    gap:10px;
+}
+
+#squareBtn{
+    height:30px;
+    width:90px;
+    background-color: #c83636;
+    color:#ffffff;
+    border:none ;
+    border-radius:10px;
+}
+#circleBtn{
+    height:30px;
+    width:90px;
+    background-color: #0c0c47;
+    color:#ffffff;
+    border:none ;
+    border-radius:10px;
+}
+.colorCode{
+    height:90px;
+
+}
+#clearCanvas{
+    height:35px;
+    width:110px;
+    background-color: aqua;
+    color:#03010b;
+    border:none;
+    border-radius:10px;
+    margin-top:12px;
+    margin-right:10px;
+}
+#downloadBtn{
+    height:35px;
+    width:110px;
+    background-color: #0c0c47;
+    color:#ffffff;
+    border:none;
+    border-radius:10px;
+    margin-top:12px;
+    margin-right:10px;
+   
+}
+.canvaContainer{
+position: relative;
+overflow: hidden;
+}

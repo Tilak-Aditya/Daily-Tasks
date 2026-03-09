@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canva</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+  <div class="bgContainer">
+      
+     <section class="top-Section">
+        <div class="topSection">
+          <h1>MC<span>.</span></h1>
+        <div class="inputContainer">
+          <h3>AI Image Generator</h3>
+        <input type="text" id="promptInput" placeholder="Describe the image you want...">
+        <button id="generateBtn">Generate Image</button>
+        </div>
+       </div>
+     </section>
+
+     <section class="canva-Section">
+      <div class="canvaContainer">
+      </div>
+     </section>
+
+      <section class="bottom-Section">
+        <div class="bottomSection">
+            
+      <div class="shapesSection section">
+       <h3>Add Shapes</h3>
+       <div>
+         <button id="squareBtn">Square</button>
+         <button id="circleBtn">Circle</button>
+      </div>
+      </div>
+
+      <div class="section shapesSection">
+         <h3>Frame Background</h3>
+         <input type="color" id="bgColor" class="colorCode">
+      </div>
+
+       <div class="section shapesSection">
+          <h3>Frame Roundness</h3>
+          <input type="range" id="roundness" min="0" max="80">
+      </div>
+
+       <div class="section ">
+        <button id="clearCanvas" class="clear">Clear Canvas</button>
+          <button id="downloadBtn" class="download">Download</button>
+       </div>
+       </div>
+     </section>
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="script1.js"></script>
+</body>
+</html>
